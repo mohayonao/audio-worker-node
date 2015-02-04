@@ -1,0 +1,6 @@
+{
+  "name": "audio-worker-node",
+  "description": "AudioWorkerNode for legacy Web Audio API",
+  "version": "0.0.0",
+  "author": "nao yonamine <mohayonao@gmail.com>"
+}
