@@ -16,6 +16,7 @@
     "uglify-js": "^2.4.16",
     "web-audio-test-api": "^0.2.1"
   },
+  "main": "lib/audio-worker-node.js",
   "scripts": {
     "build": "npm run build-browser && npm run build-minify",
     "build-browser": "browserify lib/audio-worker-node.js --standalone AudioWorkerNode -o build/audio-worker-node.js",
