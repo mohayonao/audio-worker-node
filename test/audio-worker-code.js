@@ -29,13 +29,13 @@ describe("AudioWorkerCode", function() {
     it("(src: string): string", function() {
       var filter = AudioWorkerCode.filter;
 
-      assert(filter("  onaudioprocess =") === "  this.onaudioprocess =");
-      assert(filter("  invsampleRate = 1 / sampleRate") === "  invsampleRate = 1 / this.sampleRate");
-      assert(filter("  self.self.self") === "  this.self.self.self");
-      assert(filter("  onmessage =") === "  this.onmessage =");
-      assert(filter("  postMessage('postMessage')") === "  this.postMessage('postMessage')");
-      assert(filter("  close // close\nclose") === "  this.close // close\nthis.close");
-      assert(filter("  importScripts()") === "  this.importScripts()");
+      assert(filter("  onaudioprocess =") === "  __self.onaudioprocess =");
+      assert(filter("  invsampleRate = 1 / sampleRate") === "  invsampleRate = 1 / __self.sampleRate");
+      assert(filter("  self.self.self") === "  __self.self.self.self");
+      assert(filter("  onmessage =") === "  __self.onmessage =");
+      assert(filter("  postMessage('postMessage')") === "  __self.postMessage('postMessage')");
+      assert(filter("  close // close\nclose") === "  __self.close // close\n__self.close");
+      assert(filter("  importScripts()") === "  __self.importScripts()");
     });
   });
   describe("#compile", function() {
@@ -47,7 +47,7 @@ describe("AudioWorkerCode", function() {
       var func = compile("var x = 0.5; sampleRate *= x;");
       var self = { sampleRate: 44100 };
 
-      func.call(self);
+      func.call(self, self);
 
       assert(self.sampleRate === 22050);
     });
