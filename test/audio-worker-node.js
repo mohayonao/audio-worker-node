@@ -12,10 +12,26 @@ describe("AudioWorkerNode", function() {
   });
 
   describe("constructor", function() {
-    it("(audioContext: AudioContext, scriptURL: string, numberOfInputChannels: number, numberOfOutputChannels: number)", function() {
+    it("(audioContext: AudioContext, scriptURL: string, numberOfInputChannels: number, numberOfOutputChannels: number)", function(done) {
       var node = new AudioWorkerNode(audioContext, "test_worker.js", 1, 1);
 
       assert(node instanceof global.AudioNode);
+
+      setTimeout(done, 0);
+    });
+    it("(audioContext: AudioContext, syntaxErrorScriptURL: string, numberOfInputChannels: number, numberOfOutputChannels: number)", function(done) {
+      var node = new AudioWorkerNode(audioContext, "syntax_error.js", 1, 1);
+
+      assert(node instanceof global.AudioNode);
+
+      setTimeout(done, 0);
+    });
+    it("(audioContext: AudioContext, notFoundScriptURL: string, numberOfInputChannels: number, numberOfOutputChannels: number)", function(done) {
+      var node = new AudioWorkerNode(audioContext, "not_found.js", 1, 1);
+
+      assert(node instanceof global.AudioNode);
+
+      setTimeout(done, 0);
     });
   });
   describe("#onmessage", function() {
