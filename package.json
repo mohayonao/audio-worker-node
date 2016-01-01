@@ -6,6 +6,13 @@
   "bugs": {
     "url": "https://github.com/mohayonao/audio-worker-node/issues"
   },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-mohayonao": "^0.1.0",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "web-audio-test-api": "^0.5.2"
+  },
   "files": [
     "package.json",
     "README.md",
@@ -21,5 +28,11 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/mohayonao/audio-worker-node.git"
+  },
+  "scripts": {
+    "lint": "eslint index.js test",
+    "prepublish": "rm -rf lib && npm run lint && npm run test",
+    "test": "mocha",
+    "travis": "npm run lint && npm run test"
   }
 }
