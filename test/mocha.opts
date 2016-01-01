@@ -1,4 +1,0 @@
---reporter spec
---require intelli-espower-loader
---require web-audio-test-api
---require ./test/lib/xml-http-request
