@@ -15,6 +15,10 @@ $ npm install audio-wokrer-node
 ### AudioWorkerCompiler
 - `constructor(audioContext: AudioContext, audioprocess: function, opts: object): ScriptProcessorNode`
 
+## Audio Graph
+
+![audio-graph](./audio-graph.png)
+
 ## License
 
 MIT
