@@ -61,7 +61,6 @@ describe("AudioWorkerNode", () => {
       assert(audioprocess.args[0][0].playbackTime < audioprocess.args[1][0].playbackTime);
       assert(audioprocess.args[0][0].node === processor);
       assert(audioprocess.args[0][0].node === audioprocess.args[1][0].node);
-      assert(audioprocess.args[0][0].parameters === audioprocess.args[1][0].parameters);
     });
   });
   describe("audio-graph", () => {
