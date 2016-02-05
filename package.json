@@ -1,7 +1,7 @@
 {
   "name": "audio-worker-node",
   "description": "AudioWorkerNode for audio-worker-shim",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "nao yonamine <mohayonao@gmail.com>",
   "bugs": {
     "url": "https://github.com/mohayonao/audio-worker-node/issues"
