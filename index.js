@@ -61,6 +61,7 @@ function AudioWorkerNode(audioContext, audioprocess, opts) {
 
     opts.parameters.forEach(function(param, index) {
       var paramGain = audioContext.createGain();
+
       paramCaptures[index] = audioContext.createScriptProcessor(bufferLength, 1, 1);
 
       paramGain.gain.value = +param.defaultValue || 0;
