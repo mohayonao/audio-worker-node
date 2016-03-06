@@ -83,7 +83,7 @@ describe("AudioWorkerNode", () => {
       var node = new AudioWorkerNode(audioContext, noop, {
         parameters: [
           { name: "frequency", defaultValue: 880 },
-          { name: "detune" },
+          { name: "detune" }
         ]
       });
 
@@ -96,36 +96,31 @@ describe("AudioWorkerNode", () => {
             name: "ScriptProcessorNode",
             inputs: [
               {
-                name: "GainNode",
-                gain: {
-                  value: 0,
-                  inputs: []
-                },
+                name: "ScriptProcessorNode",
                 inputs: [
                   {
-                    name: "ScriptProcessorNode",
+                    name: "ChannelMergerNode",
                     inputs: [
-                      {
-                        name: "GainNode",
-                        gain: {
-                          value: 880,
-                          inputs: []
-                        },
-                        inputs: [ DC1 ]
-                      }
-                    ]
-                  },
-                  {
-                    name: "ScriptProcessorNode",
-                    inputs: [
-                      {
-                        name: "GainNode",
-                        gain: {
-                          value: 0,
-                          inputs: []
-                        },
-                        inputs: [ DC1 ]
-                      }
+                      [
+                        {
+                          name: "GainNode",
+                          gain: {
+                            value: 880,
+                            inputs: []
+                          },
+                          inputs: [ DC1 ]
+                        }
+                      ],
+                      [
+                        {
+                          name: "GainNode",
+                          gain: {
+                            value: 0,
+                            inputs: []
+                          },
+                          inputs: [ DC1 ]
+                        }
+                      ]
                     ]
                   }
                 ]
